@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         final RadioButton rdoQuarterly = (RadioButton) findViewById(R.id.rdoQuarterly);
         final RadioButton rdoSemi = (RadioButton) findViewById(R.id.rdoSemi);
         final RadioButton rdoAnnually = (RadioButton) findViewById(R.id.rdoAnnually);
+        final RadioButton rdoPresent = (RadioButton) findViewById(R.id.rdoPresent);
+        final RadioButton rdoFuture = (RadioButton) findViewById(R.id.rdoFuture);
         final SeekBar skBarInsuranceRate = (SeekBar) findViewById(R.id.skBarInsuranceRate);
         final SeekBar skBarYear = (SeekBar) findViewById(R.id.skBarYear);
         final TextView txtInsuranceRateValue = (TextView) findViewById(R.id.txtInsuranceRateValue);
@@ -34,16 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Array containing all of the radio button widgets.
         final RadioButton[] rdoFrequencies = {rdoMonthly, rdoQuarterly, rdoSemi, rdoAnnually};
+        final RadioButton[] rdoCalculations = {rdoPresent, rdoFuture};
+
 
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /* Checks the widgets for apporpreate values, and returns an error if something has
+                /* Checks the widgets for appropriate values, and returns an error if something has
                  gone wrong. */
                 // TODO: Pass values to another activity based on the users selection
 
                 String errorMessage = "";
-                boolean rdoFound = false;
                 AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
                 alertDialog.setTitle("Warning!");
 
@@ -51,14 +54,12 @@ public class MainActivity extends AppCompatActivity {
                     errorMessage += "Currency value is empty.\n";
                 }
 
-                for (RadioButton radioButton : rdoFrequencies) {
-                    if (radioButton.isChecked()) {
-                        rdoFound = true;
-                    }
+                if (!isOneButtonSelected(rdoFrequencies)) {
+                    errorMessage += "No frequency selected.\n";
                 }
 
-                if (!rdoFound) {
-                    errorMessage += "No frequency selected.\n";
+                if (!isOneButtonSelected(rdoCalculations)) {
+                    errorMessage += "No calculation type selected.\n";
                 }
 
                 if (!errorMessage.equals("")) {
@@ -103,4 +104,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    protected boolean isOneButtonSelected(RadioButton[] radioButtons) {
+        boolean isOneButtonSelected = false;
+        for (RadioButton radioButton : radioButtons) {
+            if (radioButton.isChecked()) {
+                isOneButtonSelected = true;
+            }
+        }
+        return isOneButtonSelected;
+    };
 }

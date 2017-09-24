@@ -8,4 +8,9 @@
     <string name="rdoQuarterly">Quarterly</string>
     <string name="rdoSemi">Semi-Annually</string>
     <string name="rdoAnnually">Annually</string>
+    <string name="txtInsuranceRateValue">0.5%</string>
+    <string name="txtYearValue">0yrs.</string>
+    <string name="txtCalculation">Calculation: </string>
+    <string name="rdoPresent">Present Value</string>
+    <string name="rdoFuture">Future Value</string>
 </resources>
