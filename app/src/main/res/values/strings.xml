@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Present and Future Value Calculator</string>
+    <string name="txtValue">Value: </string>
+    <string name="edtTxtValue_hint">Enter currency amount.</string>
+    <string name="txtInsuranceRate">Insurance Rate: </string>
+    <string name="txtFrequency">Frequency: </string>
+    <string name="rdoMonthly">Monthly</string>
+    <string name="rdoQuarterly">Quarterly</string>
+    <string name="rdoSemi">Semi-Annually</string>
+    <string name="rdoAnnually">Annually</string>
 </resources>
