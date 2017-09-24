@@ -23,13 +23,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="97dp"
+        android:layout_marginStart="97dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="@string/edtTxtValue_hint"
         android:inputType="numberDecimal"
         app:layout_constraintLeft_toRightOf="@+id/txtValue"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="97dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtInsuranceRate"
@@ -81,21 +81,25 @@
         android:id="@+id/radioGroup">
 
         <RadioButton
+            android:id="@+id/rdoMonthly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rdoMonthly" />
 
         <RadioButton
+            android:id="@+id/rdoQuarterly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rdoQuarterly" />
 
         <RadioButton
+            android:id="@+id/rdoSemi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rdoSemi" />
 
         <RadioButton
+            android:id="@+id/rdoAnnually"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rdoAnnually" />
@@ -130,7 +134,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="14dp"
         android:max="50"
-        android:min="1"
+        android:min="0"
         android:minHeight="25dp"
         android:minWidth="100dp"
         app:layout_constraintLeft_toRightOf="@+id/txtYears"
@@ -140,10 +144,10 @@
         android:id="@+id/txtYearValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1"
-        app:layout_constraintLeft_toRightOf="@+id/skBarYear"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="20dp"
+        android:text="0yrs"
+        app:layout_constraintLeft_toRightOf="@+id/skBarYear"
         app:layout_constraintTop_toBottomOf="@+id/txtInsuranceRateValue" />
 
     <Button
