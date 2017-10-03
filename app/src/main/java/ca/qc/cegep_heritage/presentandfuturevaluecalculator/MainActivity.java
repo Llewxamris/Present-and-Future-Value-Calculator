@@ -1,5 +1,6 @@
 package ca.qc.cegep_heritage.presentandfuturevaluecalculator;
 
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -65,7 +66,34 @@ public class MainActivity extends AppCompatActivity {
                 if (!errorMessage.equals("")) {
                     alertDialog.setMessage(errorMessage);
                     alertDialog.show();
+                } else {
+                    String frequency = "";
+
+                    for (RadioButton rdoFrequency : rdoFrequencies) {
+                        if (rdoFrequency.isChecked()) {
+                            frequency = rdoFrequency.getText().toString();
+                        }
+                    }
+
+                    if (rdoPresent.isChecked()) {
+                        Intent presentIntent = new Intent(getApplicationContext(),
+                                PresentValue.class);
+                        presentIntent.putExtra("VALUE", edtTxtValue.getText().toString());
+                        presentIntent.putExtra("INSURANCE_RATE", skBarInsuranceRate.getProgress());
+                        presentIntent.putExtra("NUMBER_YEARS", skBarYear.getProgress());
+                        presentIntent.putExtra("FREQUENCY", frequency);
+                        startActivity(presentIntent);
+                    } else {
+                        Intent futureIntent = new Intent(getApplicationContext(),
+                                FutureValue.class);
+                        futureIntent.putExtra("VALUE", edtTxtValue.getText().toString());
+                        futureIntent.putExtra("INSURANCE_RATE", skBarInsuranceRate.getProgress());
+                        futureIntent.putExtra("NUMBER_YEARS", skBarYear.getProgress());
+                        futureIntent.putExtra("FREQUENCY", frequency);
+                        startActivity(futureIntent);
+                    }
                 }
+
             }
         });
 
@@ -113,5 +141,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return isOneButtonSelected;
-    };
+    }
 }
