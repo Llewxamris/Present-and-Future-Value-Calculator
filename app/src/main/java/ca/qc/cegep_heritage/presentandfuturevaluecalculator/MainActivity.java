@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     alertDialog.show();
                 } else {
                     String frequency = "";
+                    Bundle extras = new Bundle();
 
                     for (RadioButton rdoFrequency : rdoFrequencies) {
                         if (rdoFrequency.isChecked()) {
@@ -78,18 +79,20 @@ public class MainActivity extends AppCompatActivity {
                     if (rdoPresent.isChecked()) {
                         Intent presentIntent = new Intent(getApplicationContext(),
                                 PresentValue.class);
-                        presentIntent.putExtra("VALUE", edtTxtValue.getText().toString());
-                        presentIntent.putExtra("INSURANCE_RATE", skBarInsuranceRate.getProgress());
-                        presentIntent.putExtra("NUMBER_YEARS", skBarYear.getProgress());
-                        presentIntent.putExtra("FREQUENCY", frequency);
+                        extras.putString("VALUE", edtTxtValue.getText().toString());
+                        extras.putInt("INSURANCE_RATE", skBarInsuranceRate.getProgress());
+                        extras.putInt("NUMBER_YEARS", skBarYear.getProgress());
+                        extras.putString("FREQUENCY", frequency);
+                        presentIntent.putExtras(extras);
                         startActivity(presentIntent);
                     } else {
                         Intent futureIntent = new Intent(getApplicationContext(),
                                 FutureValue.class);
-                        futureIntent.putExtra("VALUE", edtTxtValue.getText().toString());
-                        futureIntent.putExtra("INSURANCE_RATE", skBarInsuranceRate.getProgress());
-                        futureIntent.putExtra("NUMBER_YEARS", skBarYear.getProgress());
-                        futureIntent.putExtra("FREQUENCY", frequency);
+                        extras.putString("VALUE", edtTxtValue.getText().toString());
+                        extras.putInt("INSURANCE_RATE", skBarInsuranceRate.getProgress());
+                        extras.putInt("NUMBER_YEARS", skBarYear.getProgress());
+                        extras.putString("FREQUENCY", frequency);
+                        futureIntent.putExtras(extras);
                         startActivity(futureIntent);
                     }
                 }

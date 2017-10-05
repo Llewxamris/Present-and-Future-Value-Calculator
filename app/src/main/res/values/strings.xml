@@ -13,4 +13,5 @@
     <string name="txtCalculation">Calculation: </string>
     <string name="rdoPresent">Present Value</string>
     <string name="rdoFuture">Future Value</string>
+    <string name="txtPresentTitle">Present Value</string>
 </resources>
