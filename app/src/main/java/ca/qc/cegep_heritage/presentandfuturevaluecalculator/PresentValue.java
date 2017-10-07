@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class PresentValue extends AppCompatActivity {
 
     @Override
@@ -36,7 +38,7 @@ public class PresentValue extends AppCompatActivity {
                 presentValue = -999999999;
                 break;
         }
-        txtView.setText(String.format("The present day value of $%.2f is $%.2f", futureValue,
+        txtView.setText(String.format(Locale.CANADA, "The present day value of $%.2f is $%.2f", futureValue,
                 presentValue));
     }
 
@@ -44,7 +46,6 @@ public class PresentValue extends AppCompatActivity {
         double interestRatePerTimePeriod = 1 + (rate / 100.0);
         int interestPeriods = years * frequency;
         double irtpPow = Math.pow(interestRatePerTimePeriod, interestPeriods);
-        double presentValue = value / irtpPow;
-        return presentValue;
+        return value / irtpPow;
     }
 }

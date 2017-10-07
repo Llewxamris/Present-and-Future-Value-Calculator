@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MainActivity dimensions -->
+    <dimen name="valueWidgetTop">32dp</dimen>
+    <dimen name="txtValueMarginStart">24dp</dimen>
+    <dimen name="edtTxtValueStart">97dp</dimen>
+    <!-- FutureValue table dimensions -->
+    <dimen name="tblFutureValuesWidth">395dp</dimen>
+    <dimen name="tblFutureValuesHeight">587dp</dimen>
+    <dimen name="tblFutureValuesMargin">8dp</dimen>
+    <dimen name="tblFutureValuesVSpacing">100dp</dimen>
+    <!-- PresentValue display dimensions -->
+    <dimen name="txtViewMarginStart">14dp</dimen>
+    <dimen name="txtViewMarginTop">58dp</dimen>
+    <dimen name="txtPresentTitleMarginTop">67dp</dimen>
+    <dimen name="txtPresentTitleMarginStart">112dp</dimen>
+    <dimen name="txtPresentTitleTextSize">25sp</dimen>
+</resources>

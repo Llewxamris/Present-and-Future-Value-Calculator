@@ -14,4 +14,13 @@
     <string name="rdoPresent">Present Value</string>
     <string name="rdoFuture">Future Value</string>
     <string name="txtPresentTitle">Present Value</string>
+    <string name="txtYearsSinceStart">Years</string>
+    <string name="txtInterestAccum">Interest</string>
+    <string name="txtTotalFuture">Total Value</string>
+    <string name="percentage">%.2f%%</string>
+    <string name="years">%d yrs.</string>
+    <string name="currency">$%.2f</string>
+    <string name="edtTxtValueError">Currency value is empty.\n</string>
+    <string name="rdoFrequenciesError">No frequency selected.\n</string>
+    <string name="rdoCalculationsError">No calculation type selected.</string>
 </resources>

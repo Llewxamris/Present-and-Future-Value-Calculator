@@ -1,7 +1,6 @@
 package ca.qc.cegep_heritage.presentandfuturevaluecalculator;
 
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,8 +10,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,27 +43,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 /* Checks the widgets for appropriate values, and returns an error if something has
                  gone wrong. */
-                // TODO: Pass values to another activity based on the users selection
-
                 String errorMessage = "";
-                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-                alertDialog.setTitle("Warning!");
+
 
                 if (TextUtils.isEmpty(edtTxtValue.getText())) {
-                    errorMessage += "Currency value is empty.\n";
+                    errorMessage += getResources().getString(R.string.edtTxtValueError);
                 }
 
                 if (!isOneButtonSelected(rdoFrequencies)) {
-                    errorMessage += "No frequency selected.\n";
+                    errorMessage += getResources().getString(R.string.rdoFrequenciesError);
                 }
 
                 if (!isOneButtonSelected(rdoCalculations)) {
-                    errorMessage += "No calculation type selected.\n";
+                    errorMessage += getResources().getString(R.string.rdoCalculationsError);
                 }
 
                 if (!errorMessage.equals("")) {
-                    alertDialog.setMessage(errorMessage);
-                    alertDialog.show();
+                    Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                 } else {
                     String frequency = "";
                     Bundle extras = new Bundle();
@@ -104,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 double seekValue = skBarInsuranceRate.getProgress();
-                txtInsuranceRateValue.setText(Double.toString(seekValue / 10) + '%');
+                txtInsuranceRateValue.setText(getResources().getString(R.string.percentage, seekValue / 10.0));
             }
 
             @Override
@@ -121,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
         skBarYear.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                txtYearValue.setText(Integer.toString(skBarYear.getProgress()) + "yrs.");
+                //txtYearValue.setText(Integer.toString(skBarYear.getProgress()) + "yrs.");
+                txtYearValue.setText(getResources().getString(R.string.years, skBarYear.getProgress()));
             }
 
             @Override
